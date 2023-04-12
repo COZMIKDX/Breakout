@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnxgrkja5hlch"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_e05yq"]
+[ext_resource type="PackedScene" uid="uid://dl5goc5enj3o1" path="res://paddle.tscn" id="1_qm3h1"]
+[ext_resource type="Script" path="res://paddle.gd" id="2_llere"]
+[ext_resource type="PackedScene" uid="uid://calyk55hga26b" path="res://ball.tscn" id="3_u8t2x"]
+[ext_resource type="PackedScene" uid="uid://dwtta34nl788" path="res://brick.tscn" id="5_evxb8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fywhi"]
+size = Vector2(8, 736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk183"]
+size = Vector2(1280, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2csch"]
+size = Vector2(1280, 8)
+
+[node name="main" type="Node"]
+script = ExtResource("1_e05yq")
+
+[node name="paddle" parent="." instance=ExtResource("1_qm3h1")]
+position = Vector2(590, 624)
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("2_llere")
+
+[node name="ball" parent="." instance=ExtResource("3_u8t2x")]
+position = Vector2(611, 588)
+speed = 702.702
+paddle_x_factor = 0.387
+
+[node name="brick_container" type="Node2D" parent="."]
+
+[node name="brick" parent="brick_container" instance=ExtResource("5_evxb8")]
+position = Vector2(591, 263)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="left wall" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/left wall"]
+position = Vector2(-4, 360)
+shape = SubResource("RectangleShape2D_fywhi")
+
+[node name="bottom wall" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/bottom wall"]
+position = Vector2(640, 724)
+shape = SubResource("RectangleShape2D_pk183")
+
+[node name="right wall" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/right wall"]
+position = Vector2(1284, 360)
+shape = SubResource("RectangleShape2D_fywhi")
+
+[node name="top wall" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/top wall"]
+position = Vector2(640, -4)
+shape = SubResource("RectangleShape2D_2csch")
+
+[connection signal="brick_hit" from="ball" to="." method="_on_ball_brick_hit"]
