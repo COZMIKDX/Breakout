@@ -8,6 +8,7 @@ size = Vector2(64, 16)
 
 [node name="brick" type="CharacterBody2D" groups=["bricks"]]
 script = ExtResource("1_4b5ef")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(32, 8)

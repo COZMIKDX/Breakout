@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv1oeuulaw5v8"]
+
+[ext_resource type="Script" path="res://brick_construct.gd" id="1_2ogch"]
+[ext_resource type="PackedScene" uid="uid://dwtta34nl788" path="res://brick.tscn" id="2_r1vpu"]
+
+[node name="brick_construct" type="Node2D"]
+script = ExtResource("1_2ogch")
+brick_scene = ExtResource("2_r1vpu")
+rows = 20
+columns = 2

@@ -38,3 +38,4 @@ func start(_position, _direction):
 	# Set velocity to point right (0 degrees) with speed as it's length.
 	# Then rotate the vector to point it in the desired direction. No manual vector calculation needed.
 	velocity = Vector2(speed, 0).rotated(rotation)
+
