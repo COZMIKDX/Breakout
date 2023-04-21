@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b30qpfhixfl0h"
+path="res://.godot/imported/Quiet Curves.mp3-e2e12012a449b45a269081c46cd4ba0c.mp3str"
+
+[deps]
+
+source_file="res://assets/Quiet Curves.mp3"
+dest_files=["res://.godot/imported/Quiet Curves.mp3-e2e12012a449b45a269081c46cd4ba0c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

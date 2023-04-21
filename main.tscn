@@ -1,10 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnxgrkja5hlch"]
+[gd_scene load_steps=14 format=3 uid="uid://bnxgrkja5hlch"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_e05yq"]
 [ext_resource type="PackedScene" uid="uid://dl5goc5enj3o1" path="res://paddle.tscn" id="1_qm3h1"]
 [ext_resource type="Script" path="res://paddle.gd" id="2_llere"]
 [ext_resource type="PackedScene" uid="uid://calyk55hga26b" path="res://ball.tscn" id="3_u8t2x"]
 [ext_resource type="PackedScene" uid="uid://dwtta34nl788" path="res://brick.tscn" id="5_evxb8"]
+[ext_resource type="Texture2D" uid="uid://dwuur6aw2q3m7" path="res://assets/bg.jpg" id="6_2if0w"]
+[ext_resource type="PackedScene" uid="uid://bv1oeuulaw5v8" path="res://brick_construct.tscn" id="7_crmu3"]
+[ext_resource type="AudioStream" uid="uid://b30qpfhixfl0h" path="res://assets/Quiet Curves.mp3" id="8_gp6dt"]
+[ext_resource type="AudioStream" uid="uid://dfbprs1ln25tq" path="res://assets/BELT.mp3" id="9_d5bjy"]
+[ext_resource type="AudioStream" uid="uid://iromaooiif5k" path="res://assets/kirb.mp3" id="10_qymvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fywhi"]
 size = Vector2(8, 736)
@@ -18,23 +23,27 @@ size = Vector2(1280, 8)
 [node name="main" type="Node"]
 script = ExtResource("1_e05yq")
 
+[node name="bg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(645, 362)
+scale = Vector2(0.336111, 0.336111)
+texture = ExtResource("6_2if0w")
+
 [node name="paddle" parent="." instance=ExtResource("1_qm3h1")]
 position = Vector2(590, 624)
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("2_llere")
+SPEED = 800.0
 
 [node name="ball" parent="." instance=ExtResource("3_u8t2x")]
-position = Vector2(611, 588)
+position = Vector2(640, 608)
+scale = Vector2(0.75, 0.75)
 speed = 702.702
 paddle_x_factor = 0.387
 
-[node name="brick_container" type="Node2D" parent="."]
-
-[node name="brick" parent="brick_container" instance=ExtResource("5_evxb8")]
-position = Vector2(591, 263)
-
 [node name="Walls" type="Node2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="left wall" type="StaticBody2D" parent="Walls"]
 
@@ -59,5 +68,515 @@ shape = SubResource("RectangleShape2D_fywhi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/top wall"]
 position = Vector2(640, -4)
 shape = SubResource("RectangleShape2D_2csch")
+
+[node name="brick_container" type="Node2D" parent="."]
+
+[node name="red" type="Node2D" parent="brick_container"]
+
+[node name="red_brick" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(32, 24)
+
+[node name="red_brick2" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(104, 24)
+
+[node name="red_brick3" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(176, 24)
+
+[node name="red_brick4" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(248, 24)
+
+[node name="red_brick5" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(320, 24)
+
+[node name="red_brick6" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(392, 24)
+
+[node name="red_brick7" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(464, 24)
+
+[node name="red_brick8" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(536, 24)
+
+[node name="red_brick9" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(608, 24)
+
+[node name="red_brick10" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(680, 24)
+
+[node name="red_brick11" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(752, 24)
+
+[node name="red_brick12" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(824, 24)
+
+[node name="red_brick13" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(896, 24)
+
+[node name="red_brick14" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(968, 24)
+
+[node name="red_brick15" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(1040, 24)
+
+[node name="red_brick16" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(1112, 24)
+
+[node name="red_brick17" parent="brick_container/red" instance=ExtResource("5_evxb8")]
+modulate = Color(0.85098, 0.0823529, 0, 1)
+position = Vector2(1184, 24)
+
+[node name="orange" type="Node2D" parent="brick_container"]
+
+[node name="orange_brick" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(32, 48)
+
+[node name="orange_brick2" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(104, 48)
+
+[node name="orange_brick3" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(176, 48)
+
+[node name="orange_brick4" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(248, 48)
+
+[node name="orange_brick5" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(320, 48)
+
+[node name="orange_brick6" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(392, 48)
+
+[node name="orange_brick7" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(464, 48)
+
+[node name="orange_brick8" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(536, 48)
+
+[node name="orange_brick9" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(608, 48)
+
+[node name="orange_brick10" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(680, 48)
+
+[node name="orange_brick11" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(752, 48)
+
+[node name="orange_brick12" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(824, 48)
+
+[node name="orange_brick13" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(896, 48)
+
+[node name="orange_brick14" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(968, 48)
+
+[node name="orange_brick15" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(1040, 48)
+
+[node name="orange_brick16" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(1112, 48)
+
+[node name="orange_brick17" parent="brick_container/orange" instance=ExtResource("5_evxb8")]
+modulate = Color(0.968627, 0.486275, 0, 1)
+position = Vector2(1184, 48)
+
+[node name="yellow" type="Node2D" parent="brick_container"]
+
+[node name="yellow_brick" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(32, 72)
+
+[node name="yellow_brick2" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(104, 72)
+
+[node name="yellow_brick3" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(176, 72)
+
+[node name="yellow_brick4" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(248, 72)
+
+[node name="yellow_brick5" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(320, 72)
+
+[node name="yellow_brick6" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(392, 72)
+
+[node name="yellow_brick7" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(464, 72)
+
+[node name="yellow_brick8" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(536, 72)
+
+[node name="yellow_brick9" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(608, 72)
+
+[node name="yellow_brick10" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(680, 72)
+
+[node name="yellow_brick11" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(752, 72)
+
+[node name="yellow_brick12" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(824, 72)
+
+[node name="yellow_brick13" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(896, 72)
+
+[node name="yellow_brick14" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(968, 72)
+
+[node name="yellow_brick15" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(1040, 72)
+
+[node name="yellow_brick16" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(1112, 72)
+
+[node name="yellow_brick17" parent="brick_container/yellow" instance=ExtResource("5_evxb8")]
+modulate = Color(1, 0.847059, 0.0588235, 1)
+position = Vector2(1184, 72)
+
+[node name="blue" type="Node2D" parent="brick_container"]
+
+[node name="blue_brick" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(32, 96)
+
+[node name="blue_brick2" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(104, 96)
+
+[node name="blue_brick3" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(176, 96)
+
+[node name="blue_brick4" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(248, 96)
+
+[node name="blue_brick5" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(320, 96)
+
+[node name="blue_brick6" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(392, 96)
+
+[node name="blue_brick7" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(464, 96)
+
+[node name="blue_brick8" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(536, 96)
+
+[node name="blue_brick9" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(608, 96)
+
+[node name="blue_brick10" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(680, 96)
+
+[node name="blue_brick11" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(752, 96)
+
+[node name="blue_brick12" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(824, 96)
+
+[node name="blue_brick13" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(896, 96)
+
+[node name="blue_brick14" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(968, 96)
+
+[node name="blue_brick15" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(1040, 96)
+
+[node name="blue_brick16" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(1112, 96)
+
+[node name="blue_brick17" parent="brick_container/blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.258824, 0.52549, 1, 1)
+position = Vector2(1184, 96)
+
+[node name="purple" type="Node2D" parent="brick_container"]
+
+[node name="purple_brick" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(32, 120)
+
+[node name="purple_brick2" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(104, 120)
+
+[node name="purple_brick3" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(176, 120)
+
+[node name="purple_brick4" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(248, 120)
+
+[node name="purple_brick5" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(320, 120)
+
+[node name="purple_brick6" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(392, 120)
+
+[node name="purple_brick7" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(464, 120)
+
+[node name="purple_brick8" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(536, 120)
+
+[node name="purple_brick9" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(608, 120)
+
+[node name="purple_brick10" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(680, 120)
+
+[node name="purple_brick11" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(752, 120)
+
+[node name="purple_brick12" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(824, 120)
+
+[node name="purple_brick13" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(896, 120)
+
+[node name="purple_brick14" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(968, 120)
+
+[node name="purple_brick15" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(1040, 120)
+
+[node name="purple_brick16" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(1112, 120)
+
+[node name="purple_brick17" parent="brick_container/purple" instance=ExtResource("5_evxb8")]
+modulate = Color(0.627451, 0.305882, 1, 1)
+position = Vector2(1184, 120)
+
+[node name="light_blue" type="Node2D" parent="brick_container"]
+
+[node name="light_blue_brick" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(32, 144)
+
+[node name="light_blue_brick2" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(104, 144)
+
+[node name="light_blue_brick3" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(176, 144)
+
+[node name="light_blue_brick4" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(248, 144)
+
+[node name="light_blue_brick5" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(320, 144)
+
+[node name="light_blue_brick6" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(392, 144)
+
+[node name="light_blue_brick7" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(464, 144)
+
+[node name="light_blue_brick8" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(536, 144)
+
+[node name="light_blue_brick9" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(608, 144)
+
+[node name="light_blue_brick10" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(680, 144)
+
+[node name="light_blue_brick11" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(752, 144)
+
+[node name="light_blue_brick12" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(824, 144)
+
+[node name="light_blue_brick13" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(896, 144)
+
+[node name="light_blue_brick14" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(968, 144)
+
+[node name="light_blue_brick15" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(1040, 144)
+
+[node name="light_blue_brick16" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(1112, 144)
+
+[node name="light_blue_brick17" parent="brick_container/light_blue" instance=ExtResource("5_evxb8")]
+modulate = Color(0.109804, 0.811765, 1, 1)
+position = Vector2(1184, 144)
+
+[node name="green" type="Node2D" parent="brick_container"]
+
+[node name="green_brick" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(32, 168)
+
+[node name="green_brick2" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(104, 168)
+
+[node name="green_brick3" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(176, 168)
+
+[node name="green_brick4" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(248, 168)
+
+[node name="green_brick5" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(320, 168)
+
+[node name="green_brick6" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(392, 168)
+
+[node name="green_brick7" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(464, 168)
+
+[node name="green_brick8" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(536, 168)
+
+[node name="green_brick9" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(608, 168)
+
+[node name="green_brick10" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(680, 168)
+
+[node name="green_brick11" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(752, 168)
+
+[node name="green_brick12" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(824, 168)
+
+[node name="green_brick13" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(896, 168)
+
+[node name="green_brick14" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(968, 168)
+
+[node name="green_brick15" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(1040, 168)
+
+[node name="green_brick16" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(1112, 168)
+
+[node name="green_brick17" parent="brick_container/green" instance=ExtResource("5_evxb8")]
+modulate = Color(0.14902, 0.866667, 0, 1)
+position = Vector2(1184, 168)
+
+[node name="brick_construct" parent="." instance=ExtResource("7_crmu3")]
+position = Vector2(464, 232)
+rows = 4
+columns = 5
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_gp6dt")
+volume_db = -15.0
+autoplay = true
+
+[node name="brick_hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_d5bjy")
+volume_db = -5.0
+
+[node name="stage_clear_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_qymvm")
+volume_db = 10.0
 
 [connection signal="brick_hit" from="ball" to="." method="_on_ball_brick_hit"]

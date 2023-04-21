@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 600.0
+@export_range(0,1000) var SPEED = 600.0
 #const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
