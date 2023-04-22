@@ -1,25 +1,19 @@
-# This is a test scene for creating a group of bricks by specifying the number of rows and columns
-# It's kind of hard to use right now since you currently can't see the bricks or amount of space 
-# used when creating the group.
+# A node for creating a grid of blocks without having to copy and paste a ton of brick nodes.
 @tool
 extends Node2D
 
-
+var modified = false
 @export var brick_scene: PackedScene
 @export var rows = 1:
 	set(new_value):
 		rows = new_value
-		remove_children()
-		create_construct()
+		modified = true
 		
 @export var columns = 1:
 	set(new_value):
 		columns = new_value
-		remove_children()
-		create_construct()
-		
+		modified = true
 
-var done = false
 const brick_x = 64
 const brick_y = 16
 const spacer = 8
@@ -29,11 +23,13 @@ const spacer = 8
 func _ready():
 	# Place a the bricks in a row and then move to the next row.
 	#create_construct()
+	print("ready!")
 	pass
 
 func create_construct():
 	var x = 0
 	var y = 0
+	print("Construct")
 	for i in range(rows):
 		for j in range(columns):
 			var brick = brick_scene.instantiate()
@@ -52,7 +48,9 @@ func remove_children():
 func _process(delta):
 	# I do this here because I want this part to run in tool mode too.
 	# Note: It seems to run only in scenes it is instanced in. 
-	if !done:
+	if modified:
+		remove_children()
 		create_construct()		
-		done = true
+		modified = false
+		print("construct done")
 	pass

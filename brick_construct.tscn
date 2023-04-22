@@ -6,5 +6,6 @@
 [node name="brick_construct" type="Node2D"]
 script = ExtResource("1_2ogch")
 brick_scene = ExtResource("2_r1vpu")
-rows = 20
+rows = 2
 columns = 2
+metadata/_edit_group_ = true
